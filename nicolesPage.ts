@@ -10,7 +10,7 @@ export class starWars extends BasePage {
     constructor() {
         super({url: 'https://www.starwars.com/'});
     };
-    
+
     //method, could go on basePage but would need update each time
     async tabSwitch() {
         let myTabs = await this.driver.getAllWindowHandles();

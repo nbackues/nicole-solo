@@ -1,7 +1,8 @@
 import { BasePage } from "./basePage";
 import { By } from 'selenium-webdriver';
+const fs = require('fs')
 
-export class Enchant extends BasePage {
+export class enchantedLiving extends BasePage {
     signUpClose: By = By.xpath('//a[@class = "fancyboxPop-item fancyboxPop-close-pop"]');
     jewelryMenu: By = By.xpath('(//span[@class = "exp"])[3]');
     braceMenu: By = By.xpath('(//a[text() = "BRACELETS"])[2]');
@@ -21,9 +22,15 @@ export class Enchant extends BasePage {
     brewPin: By = By.xpath('//div[text() = "Brewing Mischief enamel pin"]');
     previous: By = By.xpath('//a[@class = "control-prev"]');
     next: By = By.xpath('//a[@class = "control-prev"]');
-    Search: By = By.xpath('//input[@name = "q"]');
+    search: By = By.xpath('//input[@name = "q"]');
     
     constructor() {
         super({url: 'https://enchantedlivingmag.com/'});
+    };
+    async number(quantityNumber: string) {
+        return this.setInput(this.quantity, `${quantityNumber}`);
+    };
+    async find(text: string) {
+        return this.setInput(this.search, `${text}\n`);
     };
 };
