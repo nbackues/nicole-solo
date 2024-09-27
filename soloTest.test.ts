@@ -110,7 +110,9 @@ test('previous and next buttons', async() => {
     await el.click(el.previous);
     await el.click(el.next);
     await el.click(el.next);
+    await el.driver.quit();
 });
+
 
 test('search test', async() => {
     await el.navigate();
