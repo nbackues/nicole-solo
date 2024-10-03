@@ -142,43 +142,18 @@ test('social media links', async() => {
     await el.navigate();
     await el.click(el.facebook);
     await el.driver.sleep(2000);
-    await fs.writeFile(`${__dirname}/facebook.png`,
-        await el.driver.takeScreenshot(), 'base64', (e) => {
-            if (e) console.error(e)
-            else console.log('page saved');
-        });
-            await el.tabSwitch(); 
+    await el.tabFacebook(); 
     await el.click(el.twitter);
     await el.driver.sleep(2000);
-    await fs.writeFile(`${__dirname}/twitter.png`,
-        await el.driver.takeScreenshot(), 'base64', (e) => {
-            if (e) console.error(e)
-            else console.log('page saved');
-        });
-            await el.tabSwitch(); 
+    await el.tabTwitter(); 
     await el.click(el.pinterest);
     await el.driver.sleep(2000);
-    await fs.writeFile(`${__dirname}/pinterest.png`,
-        await el.driver.takeScreenshot(), 'base64', (e) => {
-            if (e) console.error(e)
-            else console.log('page saved');
-        });
-            await el.tabSwitch(); 
+    await el.tabPinterest(); 
     await el.click(el.instagram);
     await el.driver.sleep(2000);
-    await fs.writeFile(`${__dirname}/instagram.png`,
-        await el.driver.takeScreenshot(), 'base64', (e) => {
-            if (e) console.error(e)
-            else console.log('page saved');
-        });
-            await el.tabSwitch();    
+    await el.tabInstagram();    
     await el.click(el.tumblr);
     await el.driver.sleep(2000);
-    await fs.writeFile(`${__dirname}/tumblr.png`,
-        await el.driver.takeScreenshot(), 'base64', (e) => {
-            if (e) console.error(e)
-            else console.log('page saved');
-        });
-            await el.tabSwitch(); 
+    await el.tabTumblr(); 
+    await el.driver.quit();
 });
-await el.driver.quit();

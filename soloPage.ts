@@ -39,10 +39,63 @@ export class enchantedLiving extends BasePage {
     async find(text: string) {
         return this.setInput(this.search, `${text}\n`);
     };
-    async tabSwitch() {
+    async tabFacebook() {
         let myTabs = await this.driver.getAllWindowHandles(); 
         await this.driver.switchTo().window(myTabs[1]);
         await this.driver.sleep(1000); 
+        await fs.writeFile(`${__dirname}/facebook.png`,
+            await this.driver.takeScreenshot(), 'base64', (e) => {
+                if (e) console.error(e)
+                else console.log('page saved');
+            });
+        await this.driver.close(); 
+        await this.driver.switchTo().window(myTabs[0]); 
+    };
+    async tabTwitter() {
+        let myTabs = await this.driver.getAllWindowHandles(); 
+        await this.driver.switchTo().window(myTabs[1]);
+        await this.driver.sleep(2000); 
+        await fs.writeFile(`${__dirname}/twitter.png`,
+            await this.driver.takeScreenshot(), 'base64', (e) => {
+                if (e) console.error(e)
+                else console.log('page saved');
+            });
+        await this.driver.close(); 
+        await this.driver.switchTo().window(myTabs[0]); 
+    };
+    async tabPinterest() {
+        let myTabs = await this.driver.getAllWindowHandles(); 
+        await this.driver.switchTo().window(myTabs[1]);
+        await this.driver.sleep(1000); 
+        await fs.writeFile(`${__dirname}/pinterest.png`,
+            await this.driver.takeScreenshot(), 'base64', (e) => {
+                if (e) console.error(e)
+                else console.log('page saved');
+            });
+        await this.driver.close(); 
+        await this.driver.switchTo().window(myTabs[0]); 
+    };
+    async tabInstagram() {
+        let myTabs = await this.driver.getAllWindowHandles(); 
+        await this.driver.switchTo().window(myTabs[1]);
+        await this.driver.sleep(1000); 
+        await fs.writeFile(`${__dirname}/instagram.png`,
+            await this.driver.takeScreenshot(), 'base64', (e) => {
+                if (e) console.error(e)
+                else console.log('page saved');
+            });
+        await this.driver.close(); 
+        await this.driver.switchTo().window(myTabs[0]); 
+    };
+    async tabTumblr() {
+        let myTabs = await this.driver.getAllWindowHandles(); 
+        await this.driver.switchTo().window(myTabs[1]);
+        await this.driver.sleep(1000); 
+        await fs.writeFile(`${__dirname}/tumblr.png`,
+            await this.driver.takeScreenshot(), 'base64', (e) => {
+                if (e) console.error(e)
+                else console.log('page saved');
+            });
         await this.driver.close(); 
         await this.driver.switchTo().window(myTabs[0]); 
     };
