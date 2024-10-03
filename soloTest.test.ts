@@ -18,7 +18,7 @@ test('adding item to cart', async() => {
             if (e) console.error(e)
             else console.log('page saved');
         });
-        await el.driver.quit()
+        //await el.driver.quit()
 });
 
 test('edit cart items', async() => {
@@ -39,7 +39,7 @@ test('edit cart items', async() => {
             if (e) console.error(e)
             else console.log('page saved');
         });
-    await el.driver.quit();
+    //await el.driver.quit();
 });
 
 test('cart count matches items in cart', async() => {
@@ -63,7 +63,7 @@ test('cart count matches items in cart', async() => {
             if (e) console.error(e)
             else console.log('page saved');
         });
-    await el.driver.quit()
+    //await el.driver.quit()
 });
 
 test('checking out', async() => {
@@ -81,7 +81,7 @@ test('checking out', async() => {
             if (e) console.error(e)
             else console.log('page saved');
 });
-    await el.driver.quit()
+    //await el.driver.quit()
 });
 
 test('shopping cart button', async() => {
@@ -98,7 +98,7 @@ test('shopping cart button', async() => {
             if (e) console.error(e)
             else console.log('page saved');
 });
-    await el.driver.quit();
+    //await el.driver.quit();
 });
 
 test('previous and next buttons', async() => {
@@ -110,7 +110,7 @@ test('previous and next buttons', async() => {
     await el.click(el.previous);
     await el.click(el.next);
     await el.click(el.next);
-    await el.driver.quit();
+    //await el.driver.quit();
 });
 
 
@@ -123,5 +123,62 @@ test('search test', async() => {
             if (e) console.error(e)
             else console.log('page saved');
 });
-    await el.driver.quit();
+    //await el.driver.quit();
 });
+
+test('search error test', async() => {
+    await el.navigate();
+    await el.click(el.search);
+    await el.find('pitbulls');
+    await fs.writeFile(`${__dirname}/searchNoResults.png`,
+        await el.driver.takeScreenshot(), 'base64', (e) => {
+            if (e) console.error(e)
+            else console.log('page saved');
+});
+    //await el.driver.quit();
+});
+
+test('social media links', async() => {
+    await el.navigate();
+    await el.click(el.facebook);
+    await el.driver.sleep(2000);
+    await fs.writeFile(`${__dirname}/facebook.png`,
+        await el.driver.takeScreenshot(), 'base64', (e) => {
+            if (e) console.error(e)
+            else console.log('page saved');
+        });
+            await el.tabSwitch(); 
+    await el.click(el.twitter);
+    await el.driver.sleep(2000);
+    await fs.writeFile(`${__dirname}/twitter.png`,
+        await el.driver.takeScreenshot(), 'base64', (e) => {
+            if (e) console.error(e)
+            else console.log('page saved');
+        });
+            await el.tabSwitch(); 
+    await el.click(el.pinterest);
+    await el.driver.sleep(2000);
+    await fs.writeFile(`${__dirname}/pinterest.png`,
+        await el.driver.takeScreenshot(), 'base64', (e) => {
+            if (e) console.error(e)
+            else console.log('page saved');
+        });
+            await el.tabSwitch(); 
+    await el.click(el.instagram);
+    await el.driver.sleep(2000);
+    await fs.writeFile(`${__dirname}/instagram.png`,
+        await el.driver.takeScreenshot(), 'base64', (e) => {
+            if (e) console.error(e)
+            else console.log('page saved');
+        });
+            await el.tabSwitch();    
+    await el.click(el.tumblr);
+    await el.driver.sleep(2000);
+    await fs.writeFile(`${__dirname}/tumblr.png`,
+        await el.driver.takeScreenshot(), 'base64', (e) => {
+            if (e) console.error(e)
+            else console.log('page saved');
+        });
+            await el.tabSwitch(); 
+});
+await el.driver.quit();

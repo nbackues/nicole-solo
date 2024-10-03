@@ -23,6 +23,12 @@ export class enchantedLiving extends BasePage {
     previous: By = By.xpath('//a[@class = "control-prev"]');
     next: By = By.xpath('//a[@class = "control-prev"]');
     search: By = By.xpath('//input[@name = "q"]');
+    facebook: By = By.xpath('//li[@class = "facebook"]');
+    twitter: By = By.xpath('//li[@class = "twitter"]');
+    pinterest: By = By.xpath('//li[@class = "pinterest"]');
+    instagram: By = By.xpath('//li[@class = "instagram"]')
+    tumblr: By = By.xpath('//li[@class = "tumblr"]');
+
     
     constructor() {
         super({url: 'https://enchantedlivingmag.com/'});
@@ -32,5 +38,12 @@ export class enchantedLiving extends BasePage {
     };
     async find(text: string) {
         return this.setInput(this.search, `${text}\n`);
+    };
+    async tabSwitch() {
+        let myTabs = await this.driver.getAllWindowHandles(); 
+        await this.driver.switchTo().window(myTabs[1]);
+        await this.driver.sleep(1000); 
+        await this.driver.close(); 
+        await this.driver.switchTo().window(myTabs[0]); 
     };
 };
